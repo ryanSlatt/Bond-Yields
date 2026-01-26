@@ -48,7 +48,7 @@ USdf = USdf %>% select(Date = "date", "10Y" = "value")
 #This month
 tmp <- tempfile(fileext = ".csv")
 download.file("https://www.mof.go.jp/english/policy/jgbs/reference/interest_rate/jgbcme.csv", tmp)
-JPdf = read_csv(tmp,skip = 2) %>% head(-2) #Head here removes the last two rows, which were a footnote an NA
+JPdf = read_csv(tmp,skip = 3,col_names = c("Date","1Y","2Y","3Y","4Y","5Y","6Y","7Y","8Y","9Y","10Y","15Y","20Y","25Y","30Y","40Y")) %>% head(-2) #Head here removes the last two rows, which were a footnote an NA
 JPdf = JPdf %>% select("Date","10Y")
 JPdf <- JPdf %>% mutate(Date = as.Date(Date, format = "%Y/%m/%d"))
 
