@@ -16,6 +16,8 @@ jobs:
       # Checkout repo
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          use-public-rspm: true
 
       # Install R
       - name: Setup R
@@ -30,6 +32,7 @@ jobs:
             jsonlite
             fredr
             pdfetch
+          cache: true
 
       # Run your script with secret key
       - name: Run BondYieldsPublic.R
