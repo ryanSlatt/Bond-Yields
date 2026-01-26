@@ -1,5 +1,8 @@
 name: Update Bond Yield CSV
 
+permissions:
+  contents: write
+  
 on:
   schedule:
     - cron: "0 8 * * *"   # daily at 08:00 UTC (change if desired)
